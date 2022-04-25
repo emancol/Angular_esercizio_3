@@ -62,9 +62,9 @@ export class UserListComponent implements OnInit {
   ]
 
   constructor() {
-    setInterval(() => {
+    setTimeout(() => {
       this.randomUser()
-    }, 3000)
+    }, 10)
   }
 
 

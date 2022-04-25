@@ -1,3 +1,11 @@
-<h1 style="font-size: 50px; color: red;">{{userWinner[0].name}}</h1>
-<h1>Bernard wait 3 seconds to see who's gonna win the next prize</h1>
+<h1>Single Element</h1>
+<section class="container-items" *ngFor="let user of userSingle">
+    <p>{{userSingle.indexOf(user) + 1}}</p>
+    <div class="img-container">
+        <img src="{{user.profilePhotoUrl}}" alt="">
+    </div>
+    <h3>{{user.name}} {{user.surname}}</h3>
+    <p>{{user.age}}</p>
+    <p>{{user.address.city}}</p>
+</section>
 

@@ -8,7 +8,7 @@ import { IUser } from 'src/app/models/IUser';
 })
 export class UserSingleComponent implements OnInit {
 
-  @Input() userWinner: IUser[] = [];
+  @Input() userSingle: IUser[] = [];
 
   constructor() {
 
