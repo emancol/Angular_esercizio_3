@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { last } from 'rxjs';
 import { IUser, Address, Role, Gender } from '../models/IUser';
 @Component({
   selector: 'app-user-list',
@@ -6,7 +7,10 @@ import { IUser, Address, Role, Gender } from '../models/IUser';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-   iuser: IUser[] = [
+
+  userSelected: IUser[] = [];
+
+  iuser: IUser[] = [
     {
       id: 3487,
       name: 'Mario',
@@ -55,8 +59,25 @@ export class UserListComponent implements OnInit {
       profilePhotoUrl: 'https://bit.ly/3zU6iH3',
       gender: Gender.FEMALE
     }
-]
-  constructor() { }
+  ]
+
+  constructor() {
+    setInterval(() => {
+      this.randomUser()
+    }, 3000)
+  }
+
+
+
+  randomUser(): void {
+    this.userSelected.pop()
+    let lastIndex = this.iuser.length;
+    let randomIndex = Math.floor(Math.random() * lastIndex);
+    const randomItem = this.iuser[randomIndex]
+    this.userSelected.push({ ...randomItem })
+
+  }
+
 
   ngOnInit(): void {
   }
